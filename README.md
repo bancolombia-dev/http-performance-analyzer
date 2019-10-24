@@ -14,6 +14,11 @@ https://github.com/wg/wrk
 
 ## ¿Cómo empezar?
 
+Instale la herramienta wrk:
+```
+brew install wrk
+```
+
 ### Utilización básica
 1. Abra el archivo index.js y cambie la constante apiURL por la url de la aplicación de la que desea encontrar el momento de degración. 
 
