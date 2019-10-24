@@ -52,6 +52,10 @@ Las siguientes funcionalidades están dentro del roadMap de este script:
 
 1. Generación automática de las gráficas basado en los resultados obtenidos en el archivo result.txt
 2. Construcción de un paquete que quede disponible en la terminal como un comando independiente. El objetivo es sacar como parámetros lo que hoy son constantes dentro del script. (La distribución puede ser como imagen Docker).
+3. Mediciones a endpoints protegidos. 
+4. Pruebas unitarias. 
+
+
 
 
 
