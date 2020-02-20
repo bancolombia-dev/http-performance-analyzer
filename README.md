@@ -22,7 +22,6 @@ You need to install _wrk_ tool:
 brew install wrk
 ```
 
-### Utilización básica
 1. Open the file index.js and change the constant apiURL for the url of the service that you want to analyze. 
 2. Install dependencies:
 ```
