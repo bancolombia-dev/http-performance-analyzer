@@ -1,60 +1,52 @@
-## Encontrar momento de degradación de aplicaciones
-Script NodeJS que puede ser utilizado para encontrar el momento de degración de las aplicaciones que exponen endpoints http.
-Consiste en ejecutar peticiones cada n tiempo variando la concurrencia, buscando identificar como varia el throughput (TPS). Puede ser utilizado para la generación de datos que permita construir este tipo de gráficas: 
+# Http-performance-analyzer (deprecated)
+We are joining forces in a new initiative for distributed performance analysis. You can find more details in the repository: 
+https://github.com/bancolombia/perf-analizer
+
+## Explanation
+This script is useful to find degration time of services that expose http endpoints. It consists in execute requests each n time varying concurrency in order to get throughtput info (TPS). With the results you are be able to build graphics like:  
 
 ![NodeJS Performance](./assets/java.png)
 
-También es una herramienta útil cuando se quiere comparar el performance ofrecido por dos frameworks, por ejemplo comparar el momento de degradación de una aplicación NodeJS vs una aplicación Spring Boot: 
+You can find useful this script if you want to compare two frameworks with performance metrics. This is an example result of the comparation of NodeJS vs Spring Boot application.  
 
 ![NodeJS vs Spring](./assets/node.png)
 
-Para la ejecución de cada punto de medición se utiliza la herramienta **Wrk**:
+Internally we are using _Wrk_ tool to get each measuring point. 
 https://github.com/wg/wrk
 
 
-## ¿Cómo empezar?
+## Usage
 
-Instale la herramienta wrk:
+You need to install _wrk_ tool:
 ```
 brew install wrk
 ```
 
 ### Utilización básica
-1. Abra el archivo index.js y cambie la constante apiURL por la url de la aplicación de la que desea encontrar el momento de degración. 
-
-2. Instale dependencias 
+1. Open the file index.js and change the constant apiURL for the url of the service that you want to analyze. 
+2. Install dependencies:
 ```
 npm install
 ```
 
-3. Ejecute la aplicación
+3. Start the service
 ```
 npm start
 ```
 
-4. Espere la ejecución de la prueba. 
+4. Wait the test execution...
 
-5. Los datos del resultado los puede encontrar en result.txt. Cada fila corresponde a una medición; el primer  elemento es la concurrencia utilizada, el segundo es la cantidad de tps obtenidos. 
+5. The resulting data will be in result.txt file. Each row corresponds to a measurement; the first one is the concurrency, and the second one is the TPS. 
 
-5. Grafique utilizando una herramienta como excel (Próximamente este script tendrá la capacidad de generar gráficas propias :D)
+5. Graph using a tool like Excel
 
-### Utilización avanzada
-El script cuenta con algunas parametrizaciones, definidas como constantes al inicio, y que usted puede variar a su gusto:  
+### Parameters
+This script has a few configurations:
 
-**duration**: Tiempo de duración de cada request de medición (Por defecto está en 3 segundos cada ejecución)
-**iterations**: Cantidad de ejecuciones que desea realizar (Por defecto son 1600, cada una de 3 segundos)
-**threads**: Cantidad de hilos utilizados por Wrk para la ejecución del benchmark
-**initialIter**: ¿Cuál es la concurrencia inicial que desea manejar?
-
-
-## ¿Cómo contribuir?
-Las siguientes funcionalidades están dentro del roadMap de este script: 
-
-1. Generación automática de las gráficas basado en los resultados obtenidos en el archivo result.txt
-2. Construcción de un paquete que quede disponible en la terminal como un comando independiente. El objetivo es sacar como parámetros lo que hoy son constantes dentro del script. (La distribución puede ser como imagen Docker).
-3. Mediciones a endpoints protegidos. 
-4. Pruebas unitarias. 
-
+**duration**: duration of each request of measuring. (3 seconds by default)
+**iterations**: Quantity of executions (1600 by defualt)
+**threads**: Quantity of threads used by Wrk for the benchmark
+**initialIter**: initial concurrency
 
 
 
