@@ -208,3 +208,6 @@ fabric.properties
 /test.lua
 /out
 /.idea
+*.json
+!/package-lock.json
+!/package.json
